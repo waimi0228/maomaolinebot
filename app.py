@@ -65,7 +65,7 @@ def movie():
         title = data.text.lstrip().rstrip()
         content += '{}\n'.format(title)
     return content
-
+import os
 if __name__ == '__main__':
     app.run(host='0.0.0.0',
             port=int(os.environ.get('PORT')),
