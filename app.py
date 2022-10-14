@@ -48,7 +48,7 @@ def handle_message(event):
     msg = event.message.text
     print(msg)
     msg = msg.encode('utf-8')
-    if event.message.text == "最新電影":
+    if event.message.text == msg:
         a=movie()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a))
 
@@ -66,7 +66,6 @@ def movie():
         content += '{}\n'.format(title)
     return content
 import os
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',
-            port=int(os.environ.get('PORT')),
-            debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
